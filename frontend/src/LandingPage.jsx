@@ -25,8 +25,10 @@ function LandingPage() {
           }}
         >
           {/* Logo */}
-          <div style={{ fontSize: "24px", fontWeight: "bold", color: "white" }}>
-            katmanlabs
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <div className="logo">
+              <img src="/logo.svg" alt="istence logo" />
+            </div>
           </div>
 
           {/* Menüler */}
