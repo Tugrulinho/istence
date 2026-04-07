@@ -8,8 +8,9 @@ function LandingPage() {
         style={{
           backgroundColor: "#17385f",
           padding: "15px 0",
-          position: "sticky",
+          position: "fixed",
           top: 0,
+          width: "100%",
           zIndex: 100,
         }}
       >
@@ -91,87 +92,99 @@ function LandingPage() {
       {/* Hero Section */}
       <section
         style={{
-          minHeight: "90vh",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
+          minHeight: "100vh",
+          width: "100%",
+          margin: 0,
+          padding: 0,
+          display: "flex",
           alignItems: "center",
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: "0 20px",
         }}
       >
-        {/* Sol taraf - Text */}
-        <div style={{ paddingRight: "40px" }}>
-          <h1
-            style={{
-              fontSize: "48px",
-              fontWeight: "bold",
-              marginBottom: "20px",
-              lineHeight: "1.2",
-            }}
-          >
-            Tasarım ihtiyaçlarınızı
-            <br />
-            kolayca iletin
-          </h1>
-          <p
-            style={{
-              fontSize: "18px",
-              color: "#666",
-              marginBottom: "30px",
-              lineHeight: "1.6",
-            }}
-          >
-            Profesyonel tasarımcılarla çalışın, projelerinizi hayata geçirin.
-            Basit ve hızlı tasarım talebi süreci.
-          </p>
-          <div style={{ display: "flex", gap: "15px" }}>
-            <Link to="/kaydol/musteri?trial=true">
+        <div
+          style={{
+            maxWidth: "1200px",
+            margin: "0 auto",
+            padding: "0 20px",
+            width: "100%",
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            alignItems: "center",
+            gap: "40px",
+          }}
+        >
+          {/* Sol taraf - Text */}
+          <div style={{ paddingRight: "40px" }}>
+            <h1
+              style={{
+                fontSize: "48px",
+                fontWeight: "bold",
+                marginBottom: "20px",
+                lineHeight: "1.2",
+              }}
+            >
+              Tasarım ihtiyaçlarınızı
+              <br />
+              kolayca iletin
+            </h1>
+            <p
+              style={{
+                fontSize: "18px",
+                color: "#666",
+                marginBottom: "30px",
+                lineHeight: "1.6",
+              }}
+            >
+              Profesyonel tasarımcılarla çalışın, projelerinizi hayata geçirin.
+              Basit ve hızlı tasarım talebi süreci.
+            </p>
+            <div style={{ display: "flex", gap: "15px" }}>
+              <Link to="/kaydol/musteri?trial=true">
+                <button
+                  style={{
+                    padding: "15px 30px",
+                    backgroundColor: "#17385f",
+                    color: "white",
+                    border: "none",
+                    borderRadius: "5px",
+                    cursor: "pointer",
+                    fontSize: "16px",
+                    textDecoration: "none",
+                  }}
+                >
+                  Ücretsiz dene
+                </button>
+              </Link>
               <button
                 style={{
                   padding: "15px 30px",
-                  backgroundColor: "#17385f",
-                  color: "white",
-                  border: "none",
+                  backgroundColor: "transparent",
+                  color: "#17385f",
+                  border: "2px solid #17385f",
                   borderRadius: "5px",
                   cursor: "pointer",
                   fontSize: "16px",
-                  textDecoration: "none",
                 }}
+                onClick={() => document.getElementById("surec")?.scrollIntoView()}
               >
-                Ücretsiz dene
+                Nasıl çalışır
               </button>
-            </Link>
-            <button
-              style={{
-                padding: "15px 30px",
-                backgroundColor: "transparent",
-                color: "#17385f",
-                border: "2px solid #17385f",
-                borderRadius: "5px",
-                cursor: "pointer",
-                fontSize: "16px",
-              }}
-              onClick={() => document.getElementById("surec")?.scrollIntoView()}
-            >
-              Nasıl çalışır
-            </button>
+            </div>
           </div>
-        </div>
 
-        {/* Sağ taraf - Boş (ileride spline için) */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            minHeight: "400px",
-            backgroundColor: "#f8f9fa",
-            borderRadius: "10px",
-          }}
-        >
-          {/* İleride Spline 3D model gelecek */}
-          <p style={{ color: "#999", fontSize: "18px" }}>3D Görsel Alanı</p>
+          {/* Sağ taraf - Boş (ileride spline için) */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              minHeight: "400px",
+              backgroundColor: "#f8f9fa",
+              borderRadius: "10px",
+            }}
+          >
+            {/* İleride Spline 3D model gelecek */}
+            <p style={{ color: "#999", fontSize: "18px" }}>3D Görsel Alanı</p>
+          </div>
         </div>
       </section>
     </div>
