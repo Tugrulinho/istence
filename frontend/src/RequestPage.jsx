@@ -141,12 +141,22 @@ function RequestPage() {
                   backgroundColor: "#f9f9f9",
                 }}
               >
-                <p><strong>Başlık:</strong> {request.title}</p>
-                <p><strong>Açıklama:</strong> {request.description}</p>
-                <p><strong>Teslim Süresi:</strong> {request.deliveryTime}</p>
-                <p><strong>Çıktı Formatı:</strong> {request.outputFormat}</p>
+                <p>
+                  <strong>Başlık:</strong> {request.title}
+                </p>
+                <p>
+                  <strong>Açıklama:</strong> {request.description}
+                </p>
+                <p>
+                  <strong>Teslim Süresi:</strong> {request.deliveryTime}
+                </p>
+                <p>
+                  <strong>Çıktı Formatı:</strong> {request.outputFormat}
+                </p>
                 {request.fileName && (
-                  <p><strong>Dosya:</strong> {request.fileName}</p>
+                  <p>
+                    <strong>Dosya:</strong> {request.fileName}
+                  </p>
                 )}
               </div>
             ))}
