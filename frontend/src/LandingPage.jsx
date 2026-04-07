@@ -164,7 +164,9 @@ function LandingPage() {
                   cursor: "pointer",
                   fontSize: "16px",
                 }}
-                onClick={() => document.getElementById("surec")?.scrollIntoView()}
+                onClick={() =>
+                  document.getElementById("surec")?.scrollIntoView()
+                }
               >
                 Nasıl çalışır
               </button>
