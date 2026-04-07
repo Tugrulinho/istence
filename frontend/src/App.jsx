@@ -46,7 +46,7 @@ function App() {
 
   return (
     <Router>
-      <div>
+      <div style={{ width: "100%", margin: 0, padding: 0 }}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/giris" element={<LoginPage onLogin={handleLogin} />} />

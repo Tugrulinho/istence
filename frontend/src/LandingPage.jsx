@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function LandingPage() {
   return (
-    <div>
+    <div style={{ width: "100%", margin: 0, padding: 0 }}>
       {/* Navbar */}
       <nav
         style={{
@@ -99,6 +99,7 @@ function LandingPage() {
           backgroundColor: "#0b0f19",
           margin: 0,
           padding: 0,
+          left: 0,
         }}
       >
         {/* Spline Embed Alanı */}
