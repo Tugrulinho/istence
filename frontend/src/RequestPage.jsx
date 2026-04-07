@@ -37,7 +37,12 @@ function RequestPage({ onSubmit, onCancel }) {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
-            style={{ width: "100%", padding: "8px", marginTop: "5px", boxSizing: "border-box" }}
+            style={{
+              width: "100%",
+              padding: "8px",
+              marginTop: "5px",
+              boxSizing: "border-box",
+            }}
           />
         </div>
 
@@ -50,7 +55,12 @@ function RequestPage({ onSubmit, onCancel }) {
             onChange={(e) => setDescription(e.target.value)}
             rows={6}
             required
-            style={{ width: "100%", padding: "8px", marginTop: "5px", boxSizing: "border-box" }}
+            style={{
+              width: "100%",
+              padding: "8px",
+              marginTop: "5px",
+              boxSizing: "border-box",
+            }}
           />
         </div>
 
@@ -61,7 +71,12 @@ function RequestPage({ onSubmit, onCancel }) {
             value={deliveryTime}
             onChange={(e) => setDeliveryTime(e.target.value)}
             required
-            style={{ width: "100%", padding: "8px", marginTop: "5px", boxSizing: "border-box" }}
+            style={{
+              width: "100%",
+              padding: "8px",
+              marginTop: "5px",
+              boxSizing: "border-box",
+            }}
           >
             <option value="">Seçiniz</option>
             <option value="2 iş günü">2 iş günü</option>
@@ -77,7 +92,12 @@ function RequestPage({ onSubmit, onCancel }) {
             value={outputFormat}
             onChange={(e) => setOutputFormat(e.target.value)}
             required
-            style={{ width: "100%", padding: "8px", marginTop: "5px", boxSizing: "border-box" }}
+            style={{
+              width: "100%",
+              padding: "8px",
+              marginTop: "5px",
+              boxSizing: "border-box",
+            }}
           >
             <option value="">Seçiniz</option>
             <option value="PNG">PNG</option>
