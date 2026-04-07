@@ -8,6 +8,7 @@ function RequestPage() {
   const [file, setFile] = useState(null);
   const [submitted, setSubmitted] = useState(false);
   const [requests, setRequests] = useState([]);
+  const [selectedRequest, setSelectedRequest] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -134,12 +135,14 @@ function RequestPage() {
             {requests.map((request) => (
               <div
                 key={request.id}
+                onClick={() => setSelectedRequest(request)}
                 style={{
                   border: "1px solid #ddd",
                   borderRadius: "5px",
                   padding: "15px",
                   marginBottom: "15px",
                   backgroundColor: "#f9f9f9",
+                  cursor: "pointer",
                 }}
               >
                 <p>
@@ -161,6 +164,43 @@ function RequestPage() {
                 )}
               </div>
             ))}
+          </div>
+        )}
+      </div>
+
+      <div style={{ marginTop: "40px" }}>
+        <h2>Seçilen Talep Detayı</h2>
+        {selectedRequest === null ? (
+          <p>Henüz bir talep seçilmedi.</p>
+        ) : (
+          <div
+            style={{
+              border: "2px solid #007bff",
+              borderRadius: "5px",
+              padding: "20px",
+              backgroundColor: "#f0f8ff",
+            }}
+          >
+            <p>
+              <strong>ID:</strong> {selectedRequest.id}
+            </p>
+            <p>
+              <strong>Başlık:</strong> {selectedRequest.title}
+            </p>
+            <p>
+              <strong>Açıklama:</strong> {selectedRequest.description}
+            </p>
+            <p>
+              <strong>Teslim Süresi:</strong> {selectedRequest.deliveryTime}
+            </p>
+            <p>
+              <strong>Çıktı Formatı:</strong> {selectedRequest.outputFormat}
+            </p>
+            {selectedRequest.fileName && (
+              <p>
+                <strong>Dosya:</strong> {selectedRequest.fileName}
+              </p>
+            )}
           </div>
         )}
       </div>
