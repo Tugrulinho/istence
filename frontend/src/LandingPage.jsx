@@ -30,7 +30,10 @@ function LandingPage() {
 
           {/* Menüler */}
           <div style={{ display: "flex", gap: "30px", color: "white" }}>
-            <a href="#hizmetler" style={{ color: "white", textDecoration: "none" }}>
+            <a
+              href="#hizmetler"
+              style={{ color: "white", textDecoration: "none" }}
+            >
               Hizmetler
             </a>
             <a href="#surec" style={{ color: "white", textDecoration: "none" }}>
@@ -39,7 +42,10 @@ function LandingPage() {
             <a href="#blog" style={{ color: "white", textDecoration: "none" }}>
               Blog
             </a>
-            <a href="#fiyatlar" style={{ color: "white", textDecoration: "none" }}>
+            <a
+              href="#fiyatlar"
+              style={{ color: "white", textDecoration: "none" }}
+            >
               Fiyatlar
             </a>
           </div>
