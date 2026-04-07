@@ -6,6 +6,7 @@ function RequestPage() {
   const [deliveryTime, setDeliveryTime] = useState("");
   const [outputFormat, setOutputFormat] = useState("");
   const [file, setFile] = useState(null);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,6 +17,7 @@ function RequestPage() {
       outputFormat,
       file,
     });
+    setSubmitted(true);
   };
 
   return (
@@ -108,6 +110,11 @@ function RequestPage() {
           Talebi Gönder
         </button>
       </form>
+      {submitted && (
+        <p style={{ marginTop: "20px", color: "green", fontWeight: "bold" }}>
+          Talebin alındı. Tasarımcılar inceliyor.
+        </p>
+      )}
     </div>
   );
 }
