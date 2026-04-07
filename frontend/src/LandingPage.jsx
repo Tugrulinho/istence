@@ -93,10 +93,12 @@ function LandingPage() {
       <section
         style={{
           height: "100vh",
-          width: "100%",
+          width: "100vw",
           position: "relative",
           overflow: "hidden",
           backgroundColor: "#0b0f19",
+          margin: 0,
+          padding: 0,
         }}
       >
         {/* Spline Embed Alanı */}
