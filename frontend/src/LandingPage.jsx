@@ -6,22 +6,24 @@ function LandingPage() {
       {/* Navbar */}
       <nav
         style={{
-          backgroundColor: "#17385f",
-          padding: "15px 0",
-          position: "fixed",
-          top: 0,
-          width: "100%",
+          backgroundColor: "#111",
+          padding: "12px 24px",
+          position: "absolute",
+          top: "20px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "min(1200px, calc(100% - 40px))",
+          borderRadius: "24px",
           zIndex: 100,
+          boxShadow: "0 20px 60px rgba(0,0,0,0.25)",
         }}
       >
         <div
           style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            padding: "0 20px",
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
+            gap: "24px",
           }}
         >
           {/* Logo */}
