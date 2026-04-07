@@ -28,7 +28,10 @@ function App() {
   const handleRequestSubmit = (newRequest) => {
     setRequests([...requests, newRequest]);
     if (currentUser?.trial) {
-      setCurrentUser({ ...currentUser, freeRequests: currentUser.freeRequests - 1 });
+      setCurrentUser({
+        ...currentUser,
+        freeRequests: currentUser.freeRequests - 1,
+      });
     }
   };
 
@@ -48,7 +51,10 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/giris" element={<LoginPage onLogin={handleLogin} />} />
           <Route path="/kaydol" element={<SignupPage />} />
-          <Route path="/kaydol/musteri" element={<CustomerSignupPage onSignup={handleSignup} />} />
+          <Route
+            path="/kaydol/musteri"
+            element={<CustomerSignupPage onSignup={handleSignup} />}
+          />
           <Route
             path="/dashboard"
             element={

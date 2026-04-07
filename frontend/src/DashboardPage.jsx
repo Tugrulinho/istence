@@ -1,11 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-function DashboardPage({
-  requests,
-  currentUser,
-  onSelectRequest,
-  onLogout,
-}) {
+function DashboardPage({ requests, currentUser, onSelectRequest, onLogout }) {
   const navigate = useNavigate();
 
   const handleCreateNewRequest = () => {
@@ -43,8 +38,18 @@ function DashboardPage({
       </div>
 
       {currentUser?.trial && (
-        <div style={{ marginBottom: "20px", padding: "10px", backgroundColor: "#e7f3ff", borderRadius: "5px" }}>
-          <p><strong>Trial Kullanıcı:</strong> {currentUser.freeRequests} ücretsiz talep hakkınız kaldı.</p>
+        <div
+          style={{
+            marginBottom: "20px",
+            padding: "10px",
+            backgroundColor: "#e7f3ff",
+            borderRadius: "5px",
+          }}
+        >
+          <p>
+            <strong>Trial Kullanıcı:</strong> {currentUser.freeRequests}{" "}
+            ücretsiz talep hakkınız kaldı.
+          </p>
         </div>
       )}
 

@@ -2,11 +2,28 @@ import { Link } from "react-router-dom";
 
 function LandingPage() {
   return (
-    <div style={{ padding: "40px", maxWidth: "800px", margin: "0 auto", textAlign: "center" }}>
+    <div
+      style={{
+        padding: "40px",
+        maxWidth: "800px",
+        margin: "0 auto",
+        textAlign: "center",
+      }}
+    >
       <h1>Istence - Tasarım Talepleri Platformu</h1>
-      <p>Tasarım ihtiyaçlarınızı kolayca iletin, profesyonel tasarımcılarla çalışın.</p>
+      <p>
+        Tasarım ihtiyaçlarınızı kolayca iletin, profesyonel tasarımcılarla
+        çalışın.
+      </p>
 
-      <div style={{ marginTop: "40px", display: "flex", gap: "20px", justifyContent: "center" }}>
+      <div
+        style={{
+          marginTop: "40px",
+          display: "flex",
+          gap: "20px",
+          justifyContent: "center",
+        }}
+      >
         <Link to="/giris">
           <button
             style={{
