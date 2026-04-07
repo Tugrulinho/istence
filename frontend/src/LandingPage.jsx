@@ -34,23 +34,17 @@ function LandingPage() {
           </div>
 
           {/* Menüler */}
-          <div style={{ display: "flex", gap: "30px", color: "white" }}>
-            <a
-              href="#hizmetler"
-              style={{ color: "white", textDecoration: "none" }}
-            >
+          <div style={{ display: "flex", gap: "30px" }}>
+            <a href="#hizmetler" className="landing-nav-link">
               Hizmetler
             </a>
-            <a href="#surec" style={{ color: "white", textDecoration: "none" }}>
+            <a href="#surec" className="landing-nav-link">
               Süreç
             </a>
-            <a href="#blog" style={{ color: "white", textDecoration: "none" }}>
+            <a href="#blog" className="landing-nav-link">
               Blog
             </a>
-            <a
-              href="#fiyatlar"
-              style={{ color: "white", textDecoration: "none" }}
-            >
+            <a href="#fiyatlar" className="landing-nav-link">
               Fiyatlar
             </a>
           </div>
@@ -58,36 +52,10 @@ function LandingPage() {
           {/* Butonlar */}
           <div style={{ display: "flex", gap: "15px" }}>
             <Link to="/giris">
-              <button
-                style={{
-                  padding: "8px 16px",
-                  backgroundColor: "transparent",
-                  color: "white",
-                  border: "1px solid white",
-                  borderRadius: "5px",
-                  cursor: "pointer",
-                  fontSize: "14px",
-                  textDecoration: "none",
-                }}
-              >
-                Giriş yap
-              </button>
+              <button className="landing-cta-secondary">Giriş yap</button>
             </Link>
             <Link to="/kaydol/musteri?trial=true">
-              <button
-                style={{
-                  padding: "8px 16px",
-                  backgroundColor: "#ffc107",
-                  color: "black",
-                  border: "none",
-                  borderRadius: "5px",
-                  cursor: "pointer",
-                  fontSize: "14px",
-                  textDecoration: "none",
-                }}
-              >
-                Ücretsiz dene
-              </button>
+              <button className="landing-cta-primary">Ücretsiz dene</button>
             </Link>
           </div>
         </div>
