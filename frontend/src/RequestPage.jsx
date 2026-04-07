@@ -12,6 +12,7 @@ function RequestPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newRequest = {
+      id: Date.now(),
       title,
       description,
       deliveryTime,
@@ -130,9 +131,9 @@ function RequestPage() {
           <p>Henüz gönderilmiş talep yok.</p>
         ) : (
           <div>
-            {requests.map((request, index) => (
+            {requests.map((request) => (
               <div
-                key={index}
+                key={request.id}
                 style={{
                   border: "1px solid #ddd",
                   borderRadius: "5px",
