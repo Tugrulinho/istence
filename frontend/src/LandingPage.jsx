@@ -111,20 +111,15 @@ function LandingPage() {
             left: 0,
             width: "100%",
             height: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            color: "white",
-            fontSize: "24px",
           }}
         >
-          {/* Spline 3D Model Placeholder */}
-          <div style={{ textAlign: "center" }}>
-            <p>Spline 3D Model Burada Olacak</p>
-            <p style={{ fontSize: "16px", opacity: 0.7 }}>
-              İleride Spline embed eklenecek
-            </p>
-          </div>
+          <iframe
+            src="https://my.spline.design/placeholder"
+            frameBorder="0"
+            width="100%"
+            height="100%"
+            style={{ display: "block" }}
+          />
         </div>
       </section>
     </div>
