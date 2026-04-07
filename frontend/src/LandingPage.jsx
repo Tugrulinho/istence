@@ -92,100 +92,34 @@ function LandingPage() {
       {/* Hero Section */}
       <section
         style={{
-          minHeight: "100vh",
+          height: "100vh",
           width: "100%",
-          margin: 0,
-          padding: 0,
-          display: "flex",
-          alignItems: "center",
+          position: "relative",
+          overflow: "hidden",
+          backgroundColor: "#0b0f19",
         }}
       >
+        {/* Spline Embed Alanı */}
         <div
           style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            padding: "0 20px",
+            position: "absolute",
+            top: 0,
+            left: 0,
             width: "100%",
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
+            height: "100%",
+            display: "flex",
+            justifyContent: "center",
             alignItems: "center",
-            gap: "40px",
+            color: "white",
+            fontSize: "24px",
           }}
         >
-          {/* Sol taraf - Text */}
-          <div style={{ paddingRight: "40px" }}>
-            <h1
-              style={{
-                fontSize: "48px",
-                fontWeight: "bold",
-                marginBottom: "20px",
-                lineHeight: "1.2",
-              }}
-            >
-              Tasarım ihtiyaçlarınızı
-              <br />
-              kolayca iletin
-            </h1>
-            <p
-              style={{
-                fontSize: "18px",
-                color: "#666",
-                marginBottom: "30px",
-                lineHeight: "1.6",
-              }}
-            >
-              Profesyonel tasarımcılarla çalışın, projelerinizi hayata geçirin.
-              Basit ve hızlı tasarım talebi süreci.
+          {/* Spline 3D Model Placeholder */}
+          <div style={{ textAlign: "center" }}>
+            <p>Spline 3D Model Burada Olacak</p>
+            <p style={{ fontSize: "16px", opacity: 0.7 }}>
+              İleride Spline embed eklenecek
             </p>
-            <div style={{ display: "flex", gap: "15px" }}>
-              <Link to="/kaydol/musteri?trial=true">
-                <button
-                  style={{
-                    padding: "15px 30px",
-                    backgroundColor: "#17385f",
-                    color: "white",
-                    border: "none",
-                    borderRadius: "5px",
-                    cursor: "pointer",
-                    fontSize: "16px",
-                    textDecoration: "none",
-                  }}
-                >
-                  Ücretsiz dene
-                </button>
-              </Link>
-              <button
-                style={{
-                  padding: "15px 30px",
-                  backgroundColor: "transparent",
-                  color: "#17385f",
-                  border: "2px solid #17385f",
-                  borderRadius: "5px",
-                  cursor: "pointer",
-                  fontSize: "16px",
-                }}
-                onClick={() =>
-                  document.getElementById("surec")?.scrollIntoView()
-                }
-              >
-                Nasıl çalışır
-              </button>
-            </div>
-          </div>
-
-          {/* Sağ taraf - Boş (ileride spline için) */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              minHeight: "400px",
-              backgroundColor: "#f8f9fa",
-              borderRadius: "10px",
-            }}
-          >
-            {/* İleride Spline 3D model gelecek */}
-            <p style={{ color: "#999", fontSize: "18px" }}>3D Görsel Alanı</p>
           </div>
         </div>
       </section>
