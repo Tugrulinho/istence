@@ -1,9 +1,13 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 
-function LoginPage({ onLogin }) {
+function CustomerSignupPage({ onSignup }) {
+  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+  const isTrial = searchParams.get("trial") === "true";
+
   const [formData, setFormData] = useState({
+    name: "",
     email: "",
     password: "",
   });
@@ -17,22 +21,36 @@ function LoginPage({ onLogin }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Login simülasyonu - gerçekte API çağrısı olacak
-    const user = {
-      email: formData.email,
-      role: "musteri", // Varsayılan
-      trial: false,
-      freeRequests: 0,
+    // Kayıt işlemi simülasyonu
+    const userData = {
+      ...formData,
+      role: "musteri",
+      trial: isTrial,
+      freeRequests: isTrial ? 1 : 0,
     };
-    onLogin(user);
+    onSignup(userData);
     navigate("/dashboard");
   };
 
   return (
     <div style={{ padding: "40px", maxWidth: "600px", margin: "0 auto" }}>
-      <h1>Istence Giriş</h1>
+      <h1>{isTrial ? "Ücretsiz Deneme Kayıt" : "Müşteri Kayıt"}</h1>
+      {isTrial && <p>1 ücretsiz talep hakkınız var!</p>}
 
       <form onSubmit={handleSubmit} style={{ marginTop: "40px" }}>
+        <div style={{ marginBottom: "20px" }}>
+          <label htmlFor="name">Ad Soyad:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            style={{ width: "100%", padding: "10px", marginTop: "5px" }}
+          />
+        </div>
+
         <div style={{ marginBottom: "20px" }}>
           <label htmlFor="email">E-posta:</label>
           <input
@@ -72,15 +90,11 @@ function LoginPage({ onLogin }) {
             fontSize: "16px",
           }}
         >
-          Giriş Yap
+          Kaydol
         </button>
       </form>
-
-      <div style={{ marginTop: "20px", textAlign: "center" }}>
-        <a href="/kaydol">Hesabınız yok mu? Kaydolun</a>
-      </div>
     </div>
   );
 }
 
-export default LoginPage;
+export default CustomerSignupPage;

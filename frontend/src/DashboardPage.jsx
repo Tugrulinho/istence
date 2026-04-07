@@ -1,9 +1,21 @@
+import { useNavigate } from "react-router-dom";
+
 function DashboardPage({
   requests,
-  onCreateNewRequest,
+  currentUser,
   onSelectRequest,
   onLogout,
 }) {
+  const navigate = useNavigate();
+
+  const handleCreateNewRequest = () => {
+    if (currentUser?.trial && currentUser.freeRequests <= 0) {
+      alert("Ücretsiz deneme hakkınız tükendi!");
+      return;
+    }
+    navigate("/createRequest");
+  };
+
   return (
     <div style={{ padding: "40px", maxWidth: "600px", margin: "0 auto" }}>
       <div
@@ -30,8 +42,14 @@ function DashboardPage({
         </button>
       </div>
 
+      {currentUser?.trial && (
+        <div style={{ marginBottom: "20px", padding: "10px", backgroundColor: "#e7f3ff", borderRadius: "5px" }}>
+          <p><strong>Trial Kullanıcı:</strong> {currentUser.freeRequests} ücretsiz talep hakkınız kaldı.</p>
+        </div>
+      )}
+
       <button
-        onClick={onCreateNewRequest}
+        onClick={handleCreateNewRequest}
         style={{
           display: "block",
           width: "100%",

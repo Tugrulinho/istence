@@ -1,4 +1,7 @@
-function RequestDetailPage({ request, onBack }) {
+import { useNavigate } from "react-router-dom";
+
+function RequestDetailPage({ request }) {
+  const navigate = useNavigate();
   return (
     <div style={{ padding: "40px", maxWidth: "600px", margin: "0 auto" }}>
       <h1>Talep Detayı</h1>
@@ -38,7 +41,7 @@ function RequestDetailPage({ request, onBack }) {
           </p>
 
           <button
-            onClick={onBack}
+            onClick={() => navigate("/dashboard")}
             style={{
               marginTop: "20px",
               padding: "10px 20px",

@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function RequestPage({ onSubmit, onCancel }) {
+function RequestPage({ onSubmit }) {
+  const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [deliveryTime, setDeliveryTime] = useState("");
@@ -20,6 +22,7 @@ function RequestPage({ onSubmit, onCancel }) {
     };
     console.log(newRequest);
     onSubmit(newRequest);
+    navigate("/dashboard");
   };
 
   return (
@@ -136,7 +139,7 @@ function RequestPage({ onSubmit, onCancel }) {
 
           <button
             type="button"
-            onClick={onCancel}
+            onClick={() => navigate("/dashboard")}
             style={{
               flex: 1,
               padding: "10px 20px",
