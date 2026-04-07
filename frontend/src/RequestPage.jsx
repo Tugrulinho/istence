@@ -1,14 +1,11 @@
 import { useState } from "react";
 
-function RequestPage() {
+function RequestPage({ onSubmit, onCancel }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [deliveryTime, setDeliveryTime] = useState("");
   const [outputFormat, setOutputFormat] = useState("");
   const [file, setFile] = useState(null);
-  const [submitted, setSubmitted] = useState(false);
-  const [requests, setRequests] = useState([]);
-  const [selectedRequest, setSelectedRequest] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,15 +16,10 @@ function RequestPage() {
       deliveryTime,
       outputFormat,
       fileName: file?.name || "",
+      status: "submitted",
     };
     console.log(newRequest);
-    setRequests([...requests, newRequest]);
-    setSubmitted(true);
-    setTitle("");
-    setDescription("");
-    setDeliveryTime("");
-    setOutputFormat("");
-    setFile(null);
+    onSubmit(newRequest);
   };
 
   return (
@@ -45,7 +37,7 @@ function RequestPage() {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
-            style={{ width: "100%", padding: "8px", marginTop: "5px" }}
+            style={{ width: "100%", padding: "8px", marginTop: "5px", boxSizing: "border-box" }}
           />
         </div>
 
@@ -58,7 +50,7 @@ function RequestPage() {
             onChange={(e) => setDescription(e.target.value)}
             rows={6}
             required
-            style={{ width: "100%", padding: "8px", marginTop: "5px" }}
+            style={{ width: "100%", padding: "8px", marginTop: "5px", boxSizing: "border-box" }}
           />
         </div>
 
@@ -69,7 +61,7 @@ function RequestPage() {
             value={deliveryTime}
             onChange={(e) => setDeliveryTime(e.target.value)}
             required
-            style={{ width: "100%", padding: "8px", marginTop: "5px" }}
+            style={{ width: "100%", padding: "8px", marginTop: "5px", boxSizing: "border-box" }}
           >
             <option value="">Seçiniz</option>
             <option value="2 iş günü">2 iş günü</option>
@@ -85,7 +77,7 @@ function RequestPage() {
             value={outputFormat}
             onChange={(e) => setOutputFormat(e.target.value)}
             required
-            style={{ width: "100%", padding: "8px", marginTop: "5px" }}
+            style={{ width: "100%", padding: "8px", marginTop: "5px", boxSizing: "border-box" }}
           >
             <option value="">Seçiniz</option>
             <option value="PNG">PNG</option>
@@ -106,104 +98,39 @@ function RequestPage() {
           />
         </div>
 
-        <button
-          type="submit"
-          style={{
-            padding: "10px 20px",
-            backgroundColor: "#007bff",
-            color: "white",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-          }}
-        >
-          Talebi Gönder
-        </button>
-      </form>
-      {submitted && (
-        <p style={{ marginTop: "20px", color: "green", fontWeight: "bold" }}>
-          Talebin alındı. Tasarımcılar inceliyor.
-        </p>
-      )}
-
-      <div style={{ marginTop: "40px" }}>
-        <h2>Gönderilen Talepler</h2>
-        {requests.length === 0 ? (
-          <p>Henüz gönderilmiş talep yok.</p>
-        ) : (
-          <div>
-            {requests.map((request) => (
-              <div
-                key={request.id}
-                onClick={() => setSelectedRequest(request)}
-                style={{
-                  border: "1px solid #ddd",
-                  borderRadius: "5px",
-                  padding: "15px",
-                  marginBottom: "15px",
-                  backgroundColor: "#f9f9f9",
-                  cursor: "pointer",
-                }}
-              >
-                <p>
-                  <strong>Başlık:</strong> {request.title}
-                </p>
-                <p>
-                  <strong>Açıklama:</strong> {request.description}
-                </p>
-                <p>
-                  <strong>Teslim Süresi:</strong> {request.deliveryTime}
-                </p>
-                <p>
-                  <strong>Çıktı Formatı:</strong> {request.outputFormat}
-                </p>
-                {request.fileName && (
-                  <p>
-                    <strong>Dosya:</strong> {request.fileName}
-                  </p>
-                )}
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-
-      <div style={{ marginTop: "40px" }}>
-        <h2>Seçilen Talep Detayı</h2>
-        {selectedRequest === null ? (
-          <p>Henüz bir talep seçilmedi.</p>
-        ) : (
-          <div
+        <div style={{ display: "flex", gap: "10px" }}>
+          <button
+            type="submit"
             style={{
-              border: "2px solid #007bff",
+              flex: 1,
+              padding: "10px 20px",
+              backgroundColor: "#007bff",
+              color: "white",
+              border: "none",
               borderRadius: "5px",
-              padding: "20px",
-              backgroundColor: "#f0f8ff",
+              cursor: "pointer",
             }}
           >
-            <p>
-              <strong>ID:</strong> {selectedRequest.id}
-            </p>
-            <p>
-              <strong>Başlık:</strong> {selectedRequest.title}
-            </p>
-            <p>
-              <strong>Açıklama:</strong> {selectedRequest.description}
-            </p>
-            <p>
-              <strong>Teslim Süresi:</strong> {selectedRequest.deliveryTime}
-            </p>
-            <p>
-              <strong>Çıktı Formatı:</strong> {selectedRequest.outputFormat}
-            </p>
-            {selectedRequest.fileName && (
-              <p>
-                <strong>Dosya:</strong> {selectedRequest.fileName}
-              </p>
-            )}
-          </div>
-        )}
-      </div>
+            Talebi Gönder
+          </button>
+
+          <button
+            type="button"
+            onClick={onCancel}
+            style={{
+              flex: 1,
+              padding: "10px 20px",
+              backgroundColor: "#6c757d",
+              color: "white",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
+          >
+            İptal Et
+          </button>
+        </div>
+      </form>
     </div>
   );
 }
