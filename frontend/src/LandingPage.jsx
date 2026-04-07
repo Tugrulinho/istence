@@ -6,8 +6,8 @@ function LandingPage() {
       {/* Navbar */}
       <nav
         style={{
-          backgroundColor: "#111",
-          padding: "12px 24px",
+          backgroundColor: "rgba(10, 14, 24, 0.78)",
+          padding: "14px 26px",
           position: "absolute",
           top: "20px",
           left: "50%",
@@ -15,7 +15,10 @@ function LandingPage() {
           width: "min(1200px, calc(100% - 40px))",
           borderRadius: "24px",
           zIndex: 100,
-          boxShadow: "0 20px 60px rgba(0,0,0,0.25)",
+          boxShadow: "0 10px 30px rgba(0,0,0,0.25)",
+          border: "1px solid rgba(255,255,255,0.08)",
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
         }}
       >
         <div
@@ -70,7 +73,7 @@ function LandingPage() {
           top: 0,
           left: 0,
           overflow: "hidden",
-          backgroundColor: "#0b0f19",
+          background: "radial-gradient(circle at top center, rgba(242, 131, 228, 0.12), transparent 22%), radial-gradient(circle at 15% 25%, rgba(73, 72, 128, 0.12), transparent 20%), linear-gradient(180deg, #17385f 0%, #0b0f19 100%)",
           margin: 0,
           padding: 0,
         }}
