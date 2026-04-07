@@ -73,7 +73,8 @@ function LandingPage() {
           top: 0,
           left: 0,
           overflow: "hidden",
-          background: "radial-gradient(circle at top center, rgba(242, 131, 228, 0.12), transparent 22%), radial-gradient(circle at 15% 25%, rgba(73, 72, 128, 0.12), transparent 20%), linear-gradient(180deg, #17385f 0%, #0b0f19 100%)",
+          background:
+            "radial-gradient(circle at top center, rgba(242, 131, 228, 0.12), transparent 22%), radial-gradient(circle at 15% 25%, rgba(73, 72, 128, 0.12), transparent 20%), linear-gradient(180deg, #17385f 0%, #0b0f19 100%)",
           margin: 0,
           padding: 0,
         }}
