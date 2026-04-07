@@ -31,9 +31,7 @@ function LandingPage() {
         >
           {/* Logo */}
           <div style={{ display: "flex", alignItems: "center" }}>
-            <div className="logo">
-              <img src="/logo.svg" alt="istence logo" />
-            </div>
+            <div className="logo">istence</div>
           </div>
 
           {/* Menüler */}
