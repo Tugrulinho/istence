@@ -7,17 +7,25 @@ function RequestPage() {
   const [outputFormat, setOutputFormat] = useState("");
   const [file, setFile] = useState(null);
   const [submitted, setSubmitted] = useState(false);
+  const [requests, setRequests] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({
+    const newRequest = {
       title,
       description,
       deliveryTime,
       outputFormat,
-      file,
-    });
+      fileName: file?.name || "",
+    };
+    console.log(newRequest);
+    setRequests([...requests, newRequest]);
     setSubmitted(true);
+    setTitle("");
+    setDescription("");
+    setDeliveryTime("");
+    setOutputFormat("");
+    setFile(null);
   };
 
   return (
@@ -115,6 +123,36 @@ function RequestPage() {
           Talebin alındı. Tasarımcılar inceliyor.
         </p>
       )}
+
+      <div style={{ marginTop: "40px" }}>
+        <h2>Gönderilen Talepler</h2>
+        {requests.length === 0 ? (
+          <p>Henüz gönderilmiş talep yok.</p>
+        ) : (
+          <div>
+            {requests.map((request, index) => (
+              <div
+                key={index}
+                style={{
+                  border: "1px solid #ddd",
+                  borderRadius: "5px",
+                  padding: "15px",
+                  marginBottom: "15px",
+                  backgroundColor: "#f9f9f9",
+                }}
+              >
+                <p><strong>Başlık:</strong> {request.title}</p>
+                <p><strong>Açıklama:</strong> {request.description}</p>
+                <p><strong>Teslim Süresi:</strong> {request.deliveryTime}</p>
+                <p><strong>Çıktı Formatı:</strong> {request.outputFormat}</p>
+                {request.fileName && (
+                  <p><strong>Dosya:</strong> {request.fileName}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
